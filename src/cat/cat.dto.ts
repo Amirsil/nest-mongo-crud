@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, MaxLength, Min } from 'class-validator';
+import { ApiBody, ApiProperty, getSchemaPath } from "@nestjs/swagger";
+import { IsInt, IsNotEmpty, IsNumber, Max, MaxLength, Min } from 'class-validator';
 import { Type } from 'class-transformer';
 
 export class CreateCatDTO {
@@ -13,6 +13,14 @@ export class CreateCatDTO {
     @IsNumber()
     @Min(1)
     public tailLength: number;
+
+    @ApiProperty({
+        type: 'string',
+        format: 'binary',
+        required: false
+    })
+    public image?: string;
+
 }
 
 export class CatDTO {

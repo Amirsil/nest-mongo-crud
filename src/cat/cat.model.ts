@@ -8,4 +8,7 @@ export class Cat {
 
   @prop({ required: true })
   public tailLength: number;
+
+  @prop()
+  public image?: string;
 }
